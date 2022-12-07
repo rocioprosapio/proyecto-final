@@ -6,7 +6,7 @@
 <form action="/mi-familia/actualizar/{{ familiar.id }}" method="post"> 
     {% csrf_token %}
     {{ form }}
-    <input type="submit" value="Submit">
+    <input type="submit" value="Actualizar">
 </form>
 
 <h2 style="color:green">{{msg_exito}}</h2>
