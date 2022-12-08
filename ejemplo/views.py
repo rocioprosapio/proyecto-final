@@ -88,3 +88,15 @@ class ActualizarFamiliar(View):
                                                     'msg_exito': msg_exito})
       
       return render(request, self.template_name, {"form": form})
+  
+  
+class BorrarFamiliar(View):
+    template_name = 'ejemplo/familiares.html'
+  
+  # prestar atención ahora el method get recibe un parametro pk == primaryKey == identificador único
+    def get(self, request, pk): 
+      familiar = get_object_or_404(Familiar, pk=pk)
+      familiar.delete()
+      familiares = Familiar.objects.all()
+      return render(request, self.template_name, {'lista_familiares': familiares})
+      
